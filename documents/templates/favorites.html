@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajouter une Localisation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="mx-auto p-4 min-h-screen flex flex-col"
+      style="background: url('backgrounds/rain.jpg'); background-size: cover"
+    >
+      <div class="fixed top-2 right-5 text-4xl">
+        <a href="" class="text-white">x</a>
+      </div>
+      <!-- Formulaire d'ajout de localisation -->
+      <section class="bg-white bg-opacity-75 rounded-lg shadow p-5 mb-6 mt-12">
+        <h2 class="font-bold text-xl mb-4">Ajouter une Localisation</h2>
+        <form>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="location"
+            >
+              Nom de la Localisation
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="location"
+              type="text"
+              placeholder="Paris, France"
+            />
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Ajouter
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Liste des localisations favorites -->
+      <section class="bg-white rounded-lg shadow p-5">
+        <h2 class="font-bold text-xl mb-4">Vos Localisations Favorites</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Exemple de localisation favorite -->
+          <div
+            class="bg-gray-200 hover:bg-blue-500 hover:text-white rounded-lg p-4 flex justify-between items-center"
+          >
+            <span>Paris, France</span>
+            <div>
+              <button
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+              >
+                Supprimer
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-blue-500 text-white rounded-lg p-4 flex justify-between items-center"
+          >
+            <span>Paris, France</span>
+            <div>
+              <button
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+              >
+                Supprimer
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-gray-200 hover:bg-blue-500 hover:text-white rounded-lg p-4 flex justify-between items-center"
+          >
+            <span>Paris, France</span>
+            <div>
+              <button
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+              >
+                Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
