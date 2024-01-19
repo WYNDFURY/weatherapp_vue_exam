@@ -6,7 +6,7 @@
       <div class="flex space-x-8">
         <div class="text-center" v-for="(daily, index) in dailyForecastsList" :key="index">
           <p class="text-lg">{{ daily.weekDay }}</p>
-          <div class="w-10 h-10 bg-gray-300 rounded-full mx-auto my-2"></div>
+          <img :src="`https://openweathermap.org/img/wn/${daily.icon}@2x.png`" alt="">
           <p class="text-sm text-blue-500">{{ daily.minTemp.toFixed(1) }}°C</p>
           <p class="text-sm text-red-600">{{ daily.maxTemp.toFixed(1) }}°C</p>
         </div>
@@ -18,9 +18,9 @@
 </template>
   
 <script setup>
-import { useLocationServices } from "@/lib/services/weathers/location.js";
 
-const { getNavigatorDailyForecastsList, dailyForecastsList } = useLocationServices();
-getNavigatorDailyForecastsList();
+const props = defineProps(["dailyForecastsList"])
+
+console.log(props?.dailyForecastsList);
 
 </script>

@@ -6,9 +6,7 @@
             <!-- Blocs de prévisions horaires ici -->
             <div class="text-center" v-for="(hourly, index) in hourlyForecastsList" :key="index">
               <p class="text-lg">{{ hourly.dt_txt }}</p>
-              <div
-                class="w-10 h-10 bg-blue-300 rounded-full mx-auto my-2"
-              ></div>
+              <img :src="`https://openweathermap.org/img/wn/${hourly.weather[0].icon}@2x.png`" alt="">
               <p class="text-lg">{{ hourly?.main?.temp.toFixed(1) }}°C</p>
             </div>
           </div>
@@ -17,9 +15,6 @@
   </template>
   
   <script setup>
-  import { useLocationServices } from "@/lib/services/weathers/location.js";
-
-  const {getNavigatorHourlyForecastsList, hourlyForecastsList } = useLocationServices();
-  getNavigatorHourlyForecastsList();
+  const props = defineProps(["hourlyForecastsList"])
   </script>
   

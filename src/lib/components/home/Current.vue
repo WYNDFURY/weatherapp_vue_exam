@@ -15,7 +15,7 @@
           <p class="text-lg text-gray-600">{{ currentWeather?.weather[0].description }}</p>
         </div>
         <!-- Icône météo (à remplacer par une vraie image) -->
-        <div class="ml-2 w-20 h-20 bg-yellow-300 rounded-full"></div>
+        <img :src="`https://openweathermap.org/img/wn/${currentWeather?.weather[0].icon}@2x.png`" alt="">
       </div>
     </article>
   </section>
@@ -25,12 +25,14 @@
   
 <script setup>
 
-import { useLocationServices } from "@/lib/services/weathers/location.js";
+const props = defineProps([
+  "currentDate",
+  "currentHour",
+  "currentWeather"
+])
 
+// const { currentDate, currentHour, currentWeather, setCurrentWeather } = useWeatherLocationServices(props?.coords?.value);
+// setCurrentWeather(props.coords.value);
 
-const { currentDate, currentHour, currentWeather, getCurrentWeather } = useLocationServices();
-
-
-getCurrentWeather();
 
 </script>

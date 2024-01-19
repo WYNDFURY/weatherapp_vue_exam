@@ -19,4 +19,5 @@ const fetchWeather = async (coordinates) => {
 
 }
 
+
 export {fetchWeather};

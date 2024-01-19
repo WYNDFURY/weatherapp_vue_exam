@@ -2,7 +2,7 @@
 >      <!-- Formulaire d'ajout de localisation -->
       <section class="bg-white bg-opacity-75 rounded-lg shadow p-5 mb-6 mt-12">
         <h2 class="font-bold text-xl mb-4">Ajouter une Localisation</h2>
-        <form>
+        <form @submit.prevent="addCity" >
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -10,11 +10,12 @@
             >
               Nom de la Localisation
             </label>
-            <input
+            <input 
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="location"
               type="text"
               placeholder="Paris, France"
+              v-model="cityName"
             />
           </div>
           <div class="flex items-center justify-between">
@@ -30,6 +31,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+
+const cityName = ref();
+const emit = defineEmits(['addCity'])
+
+const addCity = () => {
+  emit('addCity', cityName.value)
+  cityName.value="";
+}
 
 </script>
 

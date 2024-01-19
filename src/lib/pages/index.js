@@ -1,7 +1,3 @@
-import TestOne from "./TestOne.vue";
-import TestTwo from "./TestTwo.vue";
-
-export default {
-    TestOne,
-    TestTwo
-}
+export { default as HomePage } from "./Home.vue";
+export { default as FavoritesPage } from "./Favorites.vue";
+export { default as FavoritesCityPage } from "./FavoritesCity.vue";
