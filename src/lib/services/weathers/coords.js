@@ -5,8 +5,10 @@ import {
 import { useWeatherLocationServices } from "@/lib/services/weathers/location";
 import { ref } from "vue";
 
+
 export const useCoordsServices = () => {
   const {
+    background,
     currentDate,
     currentHour,
     currentWeather,
@@ -36,6 +38,7 @@ export const useCoordsServices = () => {
   return {
     setNavigatorLocationCoordinates,
     setCityLocationCoordinates,
+    background,
     dailyForecastsList,
     hourlyForecastsList,
     currentDate,

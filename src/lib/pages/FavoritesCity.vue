@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto p-4 min-h-screen flex flex-col pb-16" :style="`background: url(${sunny}); background-size: cover;`">
+  <div class="mx-auto p-4 min-h-screen flex flex-col pb-16" :style="`background: url('../../src/assets/backgrounds/${background}.jpg'); background-size: cover;`">
     <Current :current-date="currentDate" :current-hour="currentHour" :current-weather="currentWeather" />
     <Hourly :hourly-forecasts-list="hourlyForecastsList"/>
     <Daily :daily-forecasts-list="dailyForecastsList"/>
@@ -15,13 +15,13 @@
 import Current from "@/lib/components/home/Current.vue";
 import Hourly from "@/lib/components/home/Hourly.vue";
 import Daily from "@/lib/components/home/Daily.vue";
-import sunny from "@/assets/backgrounds/sunny_day.jpg";
 import { RouterLink, useRoute } from 'vue-router';
 import { useCoordsServices } from '@/lib/services/weathers/coords'
 
 const { params: { city } } = useRoute();
 const { 
   setCityLocationCoordinates,
+  background,
   currentDate, 
   currentHour, 
   currentWeather,

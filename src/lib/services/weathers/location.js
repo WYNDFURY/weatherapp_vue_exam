@@ -8,7 +8,7 @@ import { ref } from "vue";
 export const useWeatherLocationServices = () => {
 
     // CURRENT WEATHER --------------------
-
+  const background = ref();
 
   // current day
   const currentDay = new Date();
@@ -25,8 +25,10 @@ export const useWeatherLocationServices = () => {
   const currentDate = currentDay.toLocaleDateString("fr", options);
   const currentWeather = ref(null);
 
+
   const setCurrentWeather = async (coordinates) => {
     currentWeather.value = await fetchLocationCurrentWeather(coordinates);
+    background.value = currentWeather.value.weather[0].main;
   };
 
         // FORECASTS --------------------
@@ -65,12 +67,8 @@ export const useWeatherLocationServices = () => {
     const averagesByDay = Object.keys(forecastsByDay).map((dateString) => {
       const { weekDay, forecasts } = forecastsByDay[dateString];
 
-      const minTemp =
-        forecasts.reduce((sum, forecast) => sum + forecast.main.temp_min, 0) /
-        forecasts.length;
-      const maxTemp =
-        forecasts.reduce((sum, forecast) => sum + forecast.main.temp_max, 0) /
-        forecasts.length;
+      const minTemp = Math.min(...forecasts.map((forecast) => forecast.main.temp));
+      const maxTemp = Math.max(...forecasts.map((forecast) => forecast.main.temp));
       const icon = forecasts[0].weather[0].icon;
 
       return {
@@ -102,6 +100,7 @@ export const useWeatherLocationServices = () => {
 
 
   return {
+    background,
     currentHour,
     currentDate,
     currentWeather,
